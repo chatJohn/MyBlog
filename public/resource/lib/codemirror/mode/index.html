@@ -1,0 +1,134 @@
+<!doctype html>
+
+<title>CodeMirror: Language Modes</title>
+<meta charset="utf-8"/>
+<link rel=stylesheet href="../doc/docs.css">
+
+<div id=nav>
+  <a href="http://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../doc/logo.png"></a>
+
+  <ul>
+    <li><a href="../viewHtml.html">Home</a>
+    <li><a href="../doc/manual.html">Manual</a>
+    <li><a href="https://github.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a class=active href="#">Language modes</a>
+  </ul>
+</div>
+
+<article>
+
+  <h2>Language modes</h2>
+
+  <p>This is a list of every mode in the distribution. Each mode lives
+in a subdirectory of the <code>mode/</code> directory, and typically
+defines a single JavaScript file that implements the mode. Loading
+such file will make the language available to CodeMirror, through
+the <a href="../doc/manual.html#option_mode"><code>mode</code></a>
+option.</p>
+
+  <div style="-webkit-columns: 100px 2; -moz-columns: 100px 2; columns: 100px 2;">
+    <ul style="margin-top: 0">
+      <li><a href="apl/viewHtml.html">APL</a></li>
+      <li><a href="asterisk/viewHtml.html">Asterisk dialplan</a></li>
+      <li><a href="clike/viewHtml.html">C, C++, C#</a></li>
+      <li><a href="clojure/viewHtml.html">Clojure</a></li>
+      <li><a href="cobol/viewHtml.html">COBOL</a></li>
+      <li><a href="coffeescript/viewHtml.html">CoffeeScript</a></li>
+      <li><a href="commonlisp/viewHtml.html">Common Lisp</a></li>
+      <li><a href="css/viewHtml.html">CSS</a></li>
+      <li><a href="cypher/viewHtml.html">Cypher</a></li>
+      <li><a href="python/viewHtml.html">Cython</a></li>
+      <li><a href="d/viewHtml.html">D</a></li>
+      <li><a href="dart/viewHtml.html">Dart</a></li>
+      <li><a href="django/viewHtml.html">Django</a> (templating language)</li>
+      <li><a href="dockerfile/viewHtml.html">Dockerfile</a></li>
+      <li><a href="diff/viewHtml.html">diff</a></li>
+      <li><a href="dtd/viewHtml.html">DTD</a></li>
+      <li><a href="dylan/viewHtml.html">Dylan</a></li>
+      <li><a href="ebnf/viewHtml.html">EBNF</a></li>
+      <li><a href="ecl/viewHtml.html">ECL</a></li>
+      <li><a href="eiffel/viewHtml.html">Eiffel</a></li>
+      <li><a href="erlang/viewHtml.html">Erlang</a></li>
+      <li><a href="forth/viewHtml.html">Forth</a></li>
+      <li><a href="fortran/viewHtml.html">Fortran</a></li>
+      <li><a href="mllike/viewHtml.html">F#</a></li>
+      <li><a href="gas/viewHtml.html">Gas</a> (AT&amp;T-style assembly)</li>
+      <li><a href="gherkin/viewHtml.html">Gherkin</a></li>
+      <li><a href="go/viewHtml.html">Go</a></li>
+      <li><a href="groovy/viewHtml.html">Groovy</a></li>
+      <li><a href="haml/viewHtml.html">HAML</a></li>
+      <li><a href="haskell/viewHtml.html">Haskell</a></li>
+      <li><a href="haxe/viewHtml.html">Haxe</a></li>
+      <li><a href="htmlembedded/viewHtml.html">HTML embedded scripts</a></li>
+      <li><a href="htmlmixed/viewHtml.html">HTML mixed-mode</a></li>
+      <li><a href="http/viewHtml.html">HTTP</a></li>
+      <li><a href="idl/viewHtml.html">IDL</a></li>
+      <li><a href="clike/viewHtml.html">Java</a></li>
+      <li><a href="jade/viewHtml.html">Jade</a></li>
+      <li><a href="javascript/viewHtml.html">JavaScript</a></li>
+      <li><a href="jinja2/viewHtml.html">Jinja2</a></li>
+      <li><a href="julia/viewHtml.html">Julia</a></li>
+      <li><a href="kotlin/viewHtml.html">Kotlin</a></li>
+      <li><a href="css/less.html">LESS</a></li>
+      <li><a href="livescript/viewHtml.html">LiveScript</a></li>
+      <li><a href="lua/viewHtml.html">Lua</a></li>
+      <li><a href="markdown/viewHtml.html">Markdown</a> (<a href="gfm/viewHtml.html">GitHub-flavour</a>)</li>
+      <li><a href="mirc/viewHtml.html">mIRC</a></li>
+      <li><a href="modelica/viewHtml.html">Modelica</a></li>
+      <li><a href="nginx/viewHtml.html">Nginx</a></li>
+      <li><a href="ntriples/viewHtml.html">NTriples</a></li>
+      <li><a href="clike/viewHtml.html">Objective C</a></li>
+      <li><a href="mllike/viewHtml.html">OCaml</a></li>
+      <li><a href="octave/viewHtml.html">Octave</a> (MATLAB)</li>
+      <li><a href="pascal/viewHtml.html">Pascal</a></li>
+      <li><a href="pegjs/viewHtml.html">PEG.js</a></li>
+      <li><a href="perl/viewHtml.html">Perl</a></li>
+      <li><a href="php/viewHtml.html">PHP</a></li>
+      <li><a href="pig/viewHtml.html">Pig Latin</a></li>
+      <li><a href="properties/viewHtml.html">Properties files</a></li>
+      <li><a href="puppet/viewHtml.html">Puppet</a></li>
+      <li><a href="python/viewHtml.html">Python</a></li>
+      <li><a href="q/viewHtml.html">Q</a></li>
+      <li><a href="r/viewHtml.html">R</a></li>
+      <li><a href="rpm/viewHtml.html">RPM</a></li>
+      <li><a href="rst/viewHtml.html">reStructuredText</a></li>
+      <li><a href="ruby/viewHtml.html">Ruby</a></li>
+      <li><a href="rust/viewHtml.html">Rust</a></li>
+      <li><a href="sass/viewHtml.html">Sass</a></li>
+      <li><a href="spreadsheet/viewHtml.html">Spreadsheet</a></li>
+      <li><a href="clike/scala.html">Scala</a></li>
+      <li><a href="scheme/viewHtml.html">Scheme</a></li>
+      <li><a href="css/scss.html">SCSS</a></li>
+      <li><a href="shell/viewHtml.html">Shell</a></li>
+      <li><a href="sieve/viewHtml.html">Sieve</a></li>
+      <li><a href="slim/viewHtml.html">Slim</a></li>
+      <li><a href="smalltalk/viewHtml.html">Smalltalk</a></li>
+      <li><a href="smarty/viewHtml.html">Smarty</a></li>
+      <li><a href="smartymixed/viewHtml.html">Smarty/HTML mixed</a></li>
+      <li><a href="solr/viewHtml.html">Solr</a></li>
+      <li><a href="soy/viewHtml.html">Soy</a></li>
+      <li><a href="stylus/viewHtml.html">Stylus</a></li>
+      <li><a href="sql/viewHtml.html">SQL</a> (several dialects)</li>
+      <li><a href="sparql/viewHtml.html">SPARQL</a></li>
+      <li><a href="stex/viewHtml.html">sTeX, LaTeX</a></li>
+      <li><a href="tcl/viewHtml.html">Tcl</a></li>
+      <li><a href="textile/viewHtml.html">Textile</a></li>
+      <li><a href="tiddlywiki/viewHtml.html">Tiddlywiki</a></li>
+      <li><a href="tiki/viewHtml.html">Tiki wiki</a></li>
+      <li><a href="toml/viewHtml.html">TOML</a></li>
+      <li><a href="tornado/viewHtml.html">Tornado</a> (templating language)</li>
+      <li><a href="turtle/viewHtml.html">Turtle</a></li>
+      <li><a href="vb/viewHtml.html">VB.NET</a></li>
+      <li><a href="vbscript/viewHtml.html">VBScript</a></li>
+      <li><a href="velocity/viewHtml.html">Velocity</a></li>
+      <li><a href="verilog/viewHtml.html">Verilog/SystemVerilog</a></li>
+      <li><a href="xml/viewHtml.html">XML/HTML</a></li>
+      <li><a href="xquery/viewHtml.html">XQuery</a></li>
+      <li><a href="yaml/viewHtml.html">YAML</a></li>
+      <li><a href="z80/viewHtml.html">Z80</a></li>
+    </ul>
+  </div>
+
+</article>
