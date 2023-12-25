@@ -2,41 +2,34 @@ package views
 
 import (
 	"MyBlog/commom"
-	"MyBlog/config"
-	"MyBlog/models"
+	"MyBlog/service"
+	"errors"
+	"log"
 	"net/http"
+	"strconv"
 )
 
 func (*HtmlApi) Index(w http.ResponseWriter, r *http.Request) {
 	index := commom.Template.Index
 	// 涉及到上方所有数据结构的定义，都需要存在相关定义
-	var categorys = []models.Category{
-		{
-			Cid:  1,
-			Name: "go",
-		},
+	// 数据库查询的数据返回记录
+	// 分页获取
+	err2 := r.ParseForm()
+	if err2 != nil {
+		log.Println("表单获取失败", err2)
+		index.WriteError(w, errors.New("The System is ERROR, Please contact the supervisor."))
+		return
 	}
-	var posts = []models.PostMore{
-		{
-			Pid:          1,
-			Title:        "go博客",
-			Content:      "内容",
-			UserName:     "chatting",
-			ViewCount:    123,
-			CreateAt:     "2023-12-24",
-			CategoryId:   1,
-			CategoryName: "go",
-			Type:         0,
-		},
+	pageStr := r.Form.Get("page")
+	page := 1
+	if pageStr != "" {
+		page, _ = strconv.Atoi(pageStr)
 	}
-	var hr *models.HomeResponse = &models.HomeResponse{
-		Viewer:    config.Cfg.Viewer,
-		Categorys: categorys,
-		Posts:     posts,
-		Total:     1,
-		Page:      1,
-		Pages:     []int{1},
-		PageEnd:   true,
+	pageSize := 10
+	hr, err := service.GetAllIndexInfo(page, pageSize)
+	if err != nil {
+		log.Println("Get All Index Information Error: ", err)
+		index.WriteError(w, errors.New("The System is ERROR, Please contact the supervisor."))
 	}
 	index.WriteData(w, hr)
 }
