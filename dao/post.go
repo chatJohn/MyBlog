@@ -5,7 +5,13 @@ import (
 	"log"
 )
 
+func GetPostCount() (count int) {
+	rows := DB.QueryRow("select count(*) from blog_post")
+	rows.Scan(&count)
+	return
+}
 func GetPostPage(page, pageSize int) ([]models.Post, error) {
+	page = (page - 1) * pageSize
 	rows, err := DB.Query("select * from blog_post limit ?, ?", page, pageSize)
 	if err != nil {
 		log.Println("Query Post Error: ", err)
