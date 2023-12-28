@@ -14,5 +14,7 @@ func Router() {
 	// 登录
 	http.HandleFunc("/login", views.HTML.Login)
 	http.HandleFunc("/api/v1/login", api.API.Login)
+	// 文章详情
+	http.HandleFunc("/p/", views.HTML.Detail)
 	http.Handle("/resource/", http.StripPrefix("/resource/", http.FileServer(http.Dir("public/resource/"))))
 }
