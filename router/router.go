@@ -16,5 +16,8 @@ func Router() {
 	http.HandleFunc("/api/v1/login", api.API.Login)
 	// 文章详情
 	http.HandleFunc("/p/", views.HTML.Detail)
+
+	// 用户登录网站之后，可以写文章
+	http.HandleFunc("/writing", views.HTML.Writing)
 	http.Handle("/resource/", http.StripPrefix("/resource/", http.FileServer(http.Dir("public/resource/"))))
 }
