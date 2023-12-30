@@ -19,5 +19,9 @@ func Router() {
 
 	// 用户登录网站之后，可以写文章
 	http.HandleFunc("/writing", views.HTML.Writing)
+	// 发布或者更新文章
+	http.HandleFunc("/api/v1/post", api.API.SaveAndUpdatePost)
+	// 发布完成后返回文章详情到markdown格式
+	http.HandleFunc("/api/v1/post/", api.API.GetPost)
 	http.Handle("/resource/", http.StripPrefix("/resource/", http.FileServer(http.Dir("public/resource/"))))
 }
