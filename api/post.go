@@ -98,3 +98,10 @@ func (*Api) GetPost(w http.ResponseWriter, r *http.Request) {
 	}
 	commom.Success(w, post)
 }
+
+func (*Api) SearchPost(w http.ResponseWriter, r *http.Request) {
+	_ = r.ParseForm()
+	searchValue := r.Form.Get("val")
+	searchRes := service.SearchPost(searchValue)
+	commom.Success(w, searchRes)
+}

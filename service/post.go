@@ -42,3 +42,15 @@ func SavePost(post *models.Post) {
 func UpdatePost(post *models.Post) {
 	dao.UpdatePost(post)
 }
+
+func SearchPost(searchValue string) []models.SearchResp {
+	posts, _ := dao.GetPostSearch(searchValue)
+	var searchRes []models.SearchResp
+	for _, post := range posts {
+		searchRes = append(searchRes, models.SearchResp{
+			Pid:   post.Pid,
+			Title: post.Title,
+		})
+	}
+	return searchRes
+}
