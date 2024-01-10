@@ -56,3 +56,9 @@ type PostRes struct {
 	config.SystemConfig
 	Article PostMore
 }
+type PigeOnHoleRes struct {
+	config.Viewer
+	config.SystemConfig
+	Categorys []Category
+	Lines     map[string][]Post
+}

@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+	"strings"
 )
 
 func (*HtmlApi) Index(w http.ResponseWriter, r *http.Request) {
@@ -26,7 +27,9 @@ func (*HtmlApi) Index(w http.ResponseWriter, r *http.Request) {
 		page, _ = strconv.Atoi(pageStr)
 	}
 	pageSize := 10
-	hr, err := service.GetAllIndexInfo(page, pageSize)
+	path := r.URL.Path
+	slug := strings.TrimPrefix(path, "/")
+	hr, err := service.GetAllIndexInfo(slug, page, pageSize)
 	if err != nil {
 		log.Println("Get All Index Information Error: ", err)
 		index.WriteError(w, errors.New("The System is ERROR, Please contact the supervisor."))

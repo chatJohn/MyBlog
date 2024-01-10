@@ -9,13 +9,22 @@ import (
 	"log"
 )
 
-func GetAllIndexInfo(page, pageSize int) (*models.HomeResponse, error) {
+func GetAllIndexInfo(slug string, page, pageSize int) (*models.HomeResponse, error) {
 	categorys, err := dao.GetAllCategory()
 	if err != nil {
 		log.Println("Get All Category Error: ", err)
 		return nil, err
 	}
-	posts, err2 := dao.GetPostPage(page, pageSize)
+	var posts []models.Post
+	var err2 error
+	var totalPostCnt int
+	if slug == "" {
+		posts, err2 = dao.GetPostPage(page, pageSize)
+		totalPostCnt = dao.GetPostCount()
+	} else {
+		posts, err2 = dao.GetPostPageBySlug(slug, page, pageSize)
+		totalPostCnt = dao.GetPostCountBySlug(slug)
+	}
 	if err2 != nil {
 		log.Println("Get All Post Error: ", err2)
 		return nil, err2
@@ -47,7 +56,7 @@ func GetAllIndexInfo(page, pageSize int) (*models.HomeResponse, error) {
 		}
 		postMores = append(postMores, postMore)
 	}
-	totalPostCnt := dao.GetPostCount()
+
 	var PageCount int = (totalPostCnt + pageSize - 1) / pageSize
 	var pages []int
 	for i := 1; i <= PageCount; i++ {

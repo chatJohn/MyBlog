@@ -23,5 +23,8 @@ func Router() {
 	http.HandleFunc("/api/v1/post", api.API.SaveAndUpdatePost)
 	// 发布完成后返回文章详情到markdown格式
 	http.HandleFunc("/api/v1/post/", api.API.GetPost)
+
+	// 归档
+	http.HandleFunc("/pigeonhole", views.HTML.PigeOnHole)
 	http.Handle("/resource/", http.StripPrefix("/resource/", http.FileServer(http.Dir("public/resource/"))))
 }
