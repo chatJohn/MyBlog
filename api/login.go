@@ -9,7 +9,7 @@ import (
 func (*Api) Login(w http.ResponseWriter, r *http.Request) {
 	params := commom.GetRequestJsonParam(r)
 	userName := params["username"].(string)
-	passwd := params["passwd"].(string)
+	passwd := params["pass"].(string)
 	loginRes, err := service.Login(userName, passwd)
 	if err != nil {
 		commom.Error(w, err)
